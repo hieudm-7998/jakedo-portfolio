@@ -2,26 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-Slim.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-SlimItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-Neutral.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-NeutralItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-Median.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-MedianItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-Bulky.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('/fonts/PolySans/PolySans-BulkyItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+:root {
+  /* --background: #fffbf4;
+  --foreground: #171717;
+  --main-color: #ff9f69; */
+  --main-shadow: -3px 5px 0 0 rgba(0, 0, 0, 1);
+  --background: oklch(93.46% 0.0305 255.11);
+  --secondary-background: oklch(100% 0 0);
+  --foreground: oklch(0% 0 0);
+  --main-foreground: oklch(0% 0 0);
+  --main: oklch(67.47% 0.1726 259.49);
+  --border: oklch(0% 0 0);
+  --ring: oklch(0% 0 0);
+  --overlay: oklch(0% 0 0 / 0.8);
+  --shadow: 4px 4px 0px 0px var(--border);
+  --chart-1: #5294FF;
+  --chart-2: #FF4D50;
+  --chart-3: #FACC00;
+  --chart-4: #05E17A;
+  --chart-5: #7A83FF;
+  --chart-active-dot: #000;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* color: var(--foreground); */
+  font-family: 'PolySans', sans-serif;
+  user-select: none;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.bg-grid-paper {
+  background-color: #fffbf4;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 19px,
+      black 19px,
+      black 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 19px,
+      black 19px,
+      black 20px
+    );
+}
+
+.brand-shadow {
+  box-shadow: var(--main-shadow);
 }
