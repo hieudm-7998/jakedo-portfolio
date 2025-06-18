@@ -1,15 +1,19 @@
 import { Project } from '@/schema/ProjectSchema';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { Badge } from '../ui/badge';
 
 export default function ProjectCard(project: Project) {
   const router = useRouter();
 
   return (
     <div
-      className='brand-shadow rounded-md border-2 border-black mb-2 cursor-pointer transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none'
+      className='brand-shadow rounded-md border-2 border-black mb-2 cursor-pointer transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none relative'
       onClick={() => router.push(`/projects/${project.id}`)}
     >
+      <div className='absolute right-3 top-3'>
+        <Badge>{project.year}</Badge>
+      </div>
       <div>
         {project.images.map((image, index) => (
           <Image

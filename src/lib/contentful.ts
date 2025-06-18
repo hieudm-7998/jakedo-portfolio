@@ -33,6 +33,7 @@ export async function fetchProjects(): Promise<Project[]> {
     return {
       id: entry.sys.id,
       title: entry.fields.title,
+      year: entry.fields.year,
       description: entry.fields.description || '',
       role: entry.fields.role || '',
       techstacks: entry.fields.techstacks || [],
@@ -46,13 +47,10 @@ export async function fetchProjects(): Promise<Project[]> {
 export async function fetchProjectById(id: string): Promise<Project> {
   const entry = await client.getEntry(id, { include: 1 });
 
-  const imageLinks = (entry.fields.images || []) as { sys: { id: string } }[];
+  const imageLinks = (entry.fields.images || []) as any[];
 
   const images = imageLinks
-    .map((link) => {
-      const asset = (entry as any).includes?.Asset?.find(
-        (a: any) => a.sys.id === link.sys.id
-      );
+    .map((asset) => {
       const fileUrl = asset?.fields?.file?.url;
       return fileUrl ? `https:${fileUrl}` : null;
     })
@@ -61,6 +59,7 @@ export async function fetchProjectById(id: string): Promise<Project> {
   const project = {
     id: entry.sys.id,
     title: entry.fields.title,
+    year: entry.fields.year,
     description: entry.fields.description || '',
     role: entry.fields.role || '',
     techstacks: entry.fields.techstacks || [],

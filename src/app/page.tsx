@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className='py-5 px-8 flex-1 max-h-full overflow-scroll'>
+    <div className='py-5 px-8 flex-1 max-h-full overflow-auto'>
       <div className='flex flex-col items-center justify-center h-full'>
         <div className='flex items-center gap-20'>
           <div className='text-5xl flex flex-col space-y-3'>

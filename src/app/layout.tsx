@@ -18,12 +18,11 @@ export default function RootLayout({
     <html lang='en'>
       <QueryClient>
         <body className='antialiased'>
-          <div className='w-screen h-screen p-6 overflow-hidden'>
-            <div className='absolute inset-0 bg-grid-paper pointer-events-none z-0 opacity-10'></div>
-
-            <div className='relative bg-[#fffbf4] border-2 border-black rounded-md w-full h-full brand-shadow flex flex-col justify-between !z-10'>
+          <div className='h-auto md:h-screen p-6'>
+            <div className='absolute inset-0 bg-grid-paper pointer-events-none z-0 opacity-10' />
+            <div className='relative bg-[#fffbf4] border-2 border-black rounded-md w-full h-full brand-shadow !z-10 flex flex-col overflow-hidden'>
               <Header />
-              {children}
+              <div className='flex-1 overflow-auto'>{children}</div>
               <Footer />
             </div>
           </div>
