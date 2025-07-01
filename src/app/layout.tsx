@@ -25,7 +25,6 @@ export default function RootLayout({
             <div className='relative bg-[#fffbf4] border-2 border-black rounded-md w-full h-full brand-shadow !z-10 flex flex-col overflow-hidden'>
               <Header />
               <div className='flex-1 overflow-auto'>{children}</div>
-              <Footer />
             </div>
           </div>
         </body>
