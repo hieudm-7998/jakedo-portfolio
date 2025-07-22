@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/sonner';
 import QueryClient from '@/components/ui/QueryClient';
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default function RootLayout({
             <div className='relative bg-[#fffbf4] border-2 border-black rounded-md w-full h-full brand-shadow !z-10 flex flex-col overflow-hidden'>
               <Header />
               <div className='flex-1 overflow-auto'>{children}</div>
+              <Toaster />
             </div>
           </div>
         </body>
